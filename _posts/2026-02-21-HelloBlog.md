@@ -54,7 +54,7 @@ git clone https://github.com/Huxpro/huxpro.github.io.git
 
 - 下载[VS Code](https://code.visualstudio.com/)，打开clone的文件夹，修改 `_config.yml`文件中的内容
 
-```YAML
+```yaml
 # Site settings
 title: mxkkkk Blog # 这个是博客的大标题
 SEOTitle: mxkkkk的博客 | mxkkkk Blog # 标签页的标题，类似于HTML中的<title></title>
@@ -68,7 +68,7 @@ baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
 - 修改你的关联社交平台
 
-```YAML
+```yaml
 # SNS settings
 RSS: false
 weibo_username:     username
@@ -91,7 +91,7 @@ zhihu_username: 43fxma
 
 比如这是我的
 
-```YAML
+```yaml
 ---
 layout: page
 description: "「一个有志大一青年的个人blog」"
@@ -103,11 +103,12 @@ description: "「一个有志大一青年的个人blog」"
 - 在终端定位到本地仓库目录
 
 - 先把文件加入缓冲区
-``` BASH
+``` bash
 git add *
 rem 注意，这个* 可以替换为你更改的文件名
 ```
 - 再提交更改
+
 ```bash
 git commit -m "提交说明，随便写"
 ```
@@ -127,13 +128,14 @@ rem 注，有时候需要将mster更改为main
 # 写文章
 
 - 先使用git rm删除博客原主人的文章
-```YAML
+```yaml
 git rm _posts\*
 ```
 
 > Tips：如果发现你不小心删除了"_posts"一整个文件夹，不要悲伤，不要心急，再建一个_posts文件夹，美好的日子总会来临
 
 - 然后，我们需要将对应的markdown文件放在"_post"文件夹内
+
 ```
 命名格式：
 <年>-<月>-<日>-<随便命名>.md
@@ -142,8 +144,7 @@ git rm _posts\*
 
 - 但还没完，你需要在你的文章开头加入以下YAML字段
 
-```YAML
----
+```yaml
 layout:     post   #使用的布局（不需要改）
 title:      驳斥唯物主义的医学？对迈克尔·埃格诺（Michael Egnor）反驳的解读 #标题 
 subtitle:   教授的逻辑有问题啊！ #副标题
@@ -152,8 +153,8 @@ author:     mxkkkk 	#作者（替换为你的名字）
 catalog: true 	# 是否归档，一般填是
 tags: #标签，随便加
     - 医学
----
 ```
+
 
 这里你定义了这篇文章的信息，对应的就是我们看到的以下字段
 
@@ -161,9 +162,11 @@ tags: #标签，随便加
 
 - 正文，按照正常的markdown格式写。markdown的教程可见[Markdown 教程 | 菜鸟教程](https://www.runoob.com/markdown/md-tutorial.html)
 - 请注意，如果你图片/链接使用的是相对路径，建议替换为绝对路径
+
 ```
 比如将 ![image](./image/1.png) 替换为 ![image](<用户名>.github.io/_posts/image/1.png)，超链接同理
 ```
+
 - 当然你也可以使用图床。大家可以移步至[2025 年，我们还有哪些免费图床可用？（长期更新）](https://www.cnblogs.com/dogma/articles/18859212)选择自己喜欢的图床
 - 按照前文教的教程提交更改即可
 
