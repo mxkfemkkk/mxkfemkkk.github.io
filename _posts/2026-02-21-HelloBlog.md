@@ -4,7 +4,7 @@ title: Hello MyBlog | 基于GitHub Page搭建的个人Blog
 subtitle: Hello,World! Hello,My Blog!
 date: 2026-02-21
 author: mxkkkk
-header-image: img/aaa.png
+header-style: text
 tag:
     - 技术
 ---
