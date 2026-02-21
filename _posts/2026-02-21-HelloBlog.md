@@ -160,7 +160,7 @@ tags: #标签，随便加
 
 ![](https://pic4.zhimg.com/v2-508816aad3c527b755db011aed780e1d_r.jpg)
 
-- 正文，按照正常的markdown格式写。markdown的教程可见[Markdown 教程 | 菜鸟教程](https://www.runoob.com/markdown/md-tutorial.html)
+- 正文，按照正常的markdown格式写。markdown的教程可见[Markdown 教程 菜鸟教程](https://www.runoob.com/markdown/md-tutorial.html)
 - 请注意，如果你图片/链接使用的是相对路径，建议替换为绝对路径
 
 ```
