@@ -11,13 +11,13 @@ tag:
     - 男性解放
 ---
 
-作者 ： Marco Balducci
+作者：Marco Balducci
 
-翻译 ： [@maxkk26](https://www.zhihu.com/people/1d9a559f475348b5561c8bce3bf22557)
+翻译：[@maxkk26](https://www.zhihu.com/people/1d9a559f475348b5561c8bce3bf22557)
 
-首发 ： 《Front Psychol》期刊
+首发：《Front Psychol》期刊
 
-原文 ： 《[Linking gender differences with gender equality: A systematic-narrative literature review of basic skills and personality](https://pmc.ncbi.nlm.nih.gov/articles/PMC9978710/pdf/fpsyg-14-1105234.pdf)》（将性别差异与性别平等联系起来：一项关于基本技能与人格的系统性叙述文献综述）[^1]
+原文：《[Linking gender differences with gender equality: A systematic-narrative literature review of basic skills and personality](https://pmc.ncbi.nlm.nih.gov/articles/PMC9978710/pdf/fpsyg-14-1105234.pdf)》（将性别差异与性别平等联系起来：一项关于基本技能与人格的系统性叙述文献综述）[^1]
 
 > 译者按：盲目的把性别差距归咎于社会建构是不合适的，根据现实情况，制定不同的政策，正视男女的差别才是男女平等的真谛，在大多数情况下，性别平等并没有让男女趋同，反而让他们的差异在某些方面变大了……
 
