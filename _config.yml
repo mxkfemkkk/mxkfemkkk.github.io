@@ -2,7 +2,7 @@
 title: mxkkkk Blog
 SEOTitle: mxkkkk的博客 | mxkkkk Blog
 header-img: img/home-bg.jpg
-email: huxpro@gmail.com
+email: no
 description: "这是mxkkkk的个人博客 | 不写BUG，开始写博客了"
 keyword: ""
 url: "https://mxkfemkkk.github.io" # your host, for absolute URL
@@ -69,7 +69,7 @@ netease_comment: false
 
 # Google Analytics
 ga_track_id: "UA-49627206-1" # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+ga_domain: mxkkkk.github.io # your domain, for example: example.com
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
