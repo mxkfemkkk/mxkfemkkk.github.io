@@ -1,0 +1,21 @@
+---
+layout: page
+title: "Repo"
+description: "开源资源代码仓库"
+header-mask: 0.3
+multilingual: true
+---
+
+{% include multilingual-sel.html %}
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+    {% capture repo_zh %}{% include repo/zh.md %}{% endcapture %}
+    {{ repo_zh | markdownify }}
+</div>
+
+<!-- English Version -->
+<div class="en post-container">
+    {% capture repo_en %}{% include repo/en.md %}{% endcapture %}
+    {{ repo_en | markdownify }}
+</div>
