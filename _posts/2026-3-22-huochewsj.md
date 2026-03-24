@@ -7,6 +7,7 @@ header-style: text
 catalog: true
 tag:
     - 热点事件辟谣
+    - 【持续追踪】K228次列车卫生巾事件
 ---
 
 本文针对当事女方的小作文和她的过往对此事进行解析，并提出本人的疑问。有关该事件的更多信息推荐关注[我的个人博客](https://mxkfemkkk.github.io/)
