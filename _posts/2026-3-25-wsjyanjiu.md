@@ -1,6 +1,6 @@
 ---
 layout: post
-title: K228次列车卫生巾事件研究（截止至3.24）
+title: K228次列车卫生巾事件研究（截止至3.26）
 subtitle: 一切充满可疑
 date: 2026-3-25
 header-style: text
