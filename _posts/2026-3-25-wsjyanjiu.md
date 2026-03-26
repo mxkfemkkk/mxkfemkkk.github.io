@@ -449,9 +449,6 @@ tag:
 
 这不是说事实不重要了，而是说：**在社交媒体时代，公共机构必须具备「把事实讲成故事」的能力。 只会「发通报」的机构，注定在舆论场上被「会讲故事」的个体降维打击。**
 
-所以，因为怕降维打击，我们就可以忽视事实的重要性吗？如果可以——
-
-**通报的意义，又在哪里？**
 
 # 参考
 
@@ -467,9 +464,7 @@ tag:
 [^10]: [微博网贴](https://weibo.com/6269477225/Qx0CAjVZ2)
 [^11]: [微博网帖](https://weibo.com/6269477225/Qx4Iy0YX3)
 [^12]: [兰州铁路公报](https://pic3.zhimg.com/v2-6037cad42d4025457325832b88d352d6_1440w.jpg)
-
 [^13]: [微博网贴](https://weibo.com/1015932322/QxIJBvHZd)
-
 [^14]: 中华人民共和国交通运输部令2023年第5号
 [^15]: [为啥“讲故事”的能力很重要？科学家误击小鼠后发现…](https://worldscience.cn/dt/622469.shtml)
 [^16]: Thomas Graeber , Christopher Roth , Florian Zimmermann. Stories, Statistics, and Memory[J]. The Quarterly Journal of Economics. 2024. 13(4): 2181-2225 https://doi.org/10.1093/qje/qjae020
