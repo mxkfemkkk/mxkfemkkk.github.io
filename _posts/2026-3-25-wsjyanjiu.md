@@ -7,7 +7,7 @@ header-img: "img/1.jpg"
 catalog: true
 tag:
     - 热点事件辟谣
-    - 【持续追踪】K228次列车卫生巾事
+    - 【持续追踪】K228次列车卫生巾事件
 ---
 
 针对此事，我在3月22日的时候写过一篇文章《[针对“卫生巾”事件对当事女方的部分质疑](https://mxkfemkkk.github.io/2026/03/22/huochewsj/)》，对女方当事人的部分证据提出了质疑。现在各种大神网友扒出来了很多东西，我将会基于这些材料对此事作出评价。如果有其他的发现，您可以在[issues](https://github.com/mxkfemkkk/mxkfemkkk/issues)投稿。
