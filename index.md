@@ -1,5 +1,5 @@
 ---
-layout: MY BLOG
+layout: home
 title: mxkkkk的小站
 ---
 
