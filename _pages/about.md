@@ -5,7 +5,6 @@ author_profile: true
 redirect_from: 
   - /about/
   - /about.html
-
 ---
 
 Hey, I'm [@mxkkkk](https://www.zhihu.com/people/43fxma), male, born in 2006, currently studying Software Engineering at Shandong University. I'm also a masculinist and a practitioner of gender equality.
