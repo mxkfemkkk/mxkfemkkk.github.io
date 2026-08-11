@@ -109,12 +109,16 @@
 
 /* ---------- 引用 ---------- */
 .post-content blockquote {
-  color: #24292e;
-  border: 4px solid #727374;
-  background-color: #fafbfc;
-  border-radius: 4px;
-  padding: 12px 16px;
-  margin: 0.8em 0;
+  color: #6a737d;              /* GitHub 默认引用文字颜色（灰色） */
+  font-style: italic;          /* 斜体（GitHub 偶尔在引用中强调，这里按你的需求加上） */
+  border-left: 4px solid #dfe2e5; /* 只有左边框，颜色是 GitHub 浅灰色 */
+  border-top: none;            /* 去掉上边框 */
+  border-right: none;          /* 去掉右边框 */
+  border-bottom: none;         /* 去掉下边框 */
+  background-color: transparent; /* 去掉背景色，变成完全透明 */
+  padding: 0 0 0 1em;          /* 只保留左侧内边距，让文字和边框有呼吸感 */
+  margin: 0.8em 0;             /* 上下边距保持不变，左右边距归零（或按你的需求调整） */
+  border-radius: 0;            /* 去掉圆角（GitHub 引用没有圆角） */
 }
 
 /* ---------- 代码 ---------- */
