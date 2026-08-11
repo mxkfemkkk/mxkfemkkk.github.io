@@ -15,7 +15,7 @@
 
 /* ---------- 文章头部 ---------- */
 .post h1 {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.04rem;
@@ -52,7 +52,7 @@
 }
 
 .post-content p {
-  margin: 0.8em 0;
+  margin: 0.5em 0;
   color: #24292e;
 }
 
