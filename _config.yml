@@ -7,6 +7,7 @@ url: "https://mxkfemkkk.github.io"
 baseurl: ""                   # 用户站点必须为空字符串
 encoding: utf-8
 theme: minima
+markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
