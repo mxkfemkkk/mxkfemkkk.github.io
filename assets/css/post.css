@@ -209,6 +209,11 @@
   border-radius: 4px;
 }
 
+/* ---------- Gitalk 评论区 ---------- */
+.post-comments {
+  margin: 24px 0;
+}
+
 /* ---------- 响应式 ---------- */
 @media (max-width: 768px) {
   .post {

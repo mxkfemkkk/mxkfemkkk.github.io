@@ -11,6 +11,13 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 permalink: /:year/:month/:day/:title/
+# Gitalk 评论区配置（在 GitHub 上创建 OAuth App 后填入）
+gitalk:
+  clientID: "Ov23lil0N3VAXWbgSIvK"        # OAuth App 的 Client ID
+  clientSecret: "dad7deef634de28defa893ddcc05f0aef74b665b"    # OAuth App 的 Client Secret
+  repo: "gittalk"            # 存放评论 issue 的仓库名（如 mxkfemkkk.github.io）
+  owner: "mxkfemkkk"           # 仓库所有者（GitHub 用户名）
+  admin: "mxkfemkkk"           # 仓库管理员（GitHub 用户名）
 date_format: "%Y-%m-%d"
 defaults:
   - scope:
