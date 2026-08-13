@@ -14,6 +14,7 @@ plugins:
 permalink: /:year/:month/:day/:title/
 # Gitalk 评论区配置（在 GitHub 上创建 OAuth App 后填入）
 gitalk:
+  proxy: "https://gitalk-proxy.zhangmaixuan.workers.dev/" # 代理地址，解决 Gitalk 评论区跨域问题
   clientID: "Ov23lil0N3VAXWbgSIvK"        # OAuth App 的 Client ID
   clientSecret: "dad7deef634de28defa893ddcc05f0aef74b665b"    # OAuth App 的 Client Secret
   repo: "gittalk"            # 存放评论 issue 的仓库名（如 mxkfemkkk.github.io）
