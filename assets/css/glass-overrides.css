@@ -225,7 +225,7 @@ html[data-glass="liquid"] .post,
 html[data-glass="frost"] .post,
 html[data-glass="liquid"] .page,
 html[data-glass="frost"] .page {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.70);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   box-shadow: none;
