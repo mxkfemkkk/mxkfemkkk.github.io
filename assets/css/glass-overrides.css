@@ -13,7 +13,7 @@
 /* 浅色底色变量（.glass 的渐变背景引用这两个变量；
    .glass-card 的背景在库内是硬编码的，需在下方按类直接覆盖） */
 .glass, .glass-card, .glass-pill {
-  --gr-bg-start: rgba(255, 255, 255, 0.60);
+  --gr-bg-start: rgba(255, 255, 255, 0.40);
   --gr-bg-end: rgba(255, 255, 255, 0.38);
 }
 
