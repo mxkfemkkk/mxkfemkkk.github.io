@@ -26,14 +26,20 @@ body {
     "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.7;
   color: var(--text);
+  background-color: var(--bg); 
+  background-image: url("../images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed
   /* 玻璃效果可见的背景：静态淡蓝渐变（与 --blue #0084ff 协调，无动画） */
-  background:
+  /*background:
     radial-gradient(900px 520px at 90% -60px, rgba(0, 132, 255, 0.12), transparent 62%),
     radial-gradient(760px 420px at -40px 60px, rgba(0, 132, 255, 0.09), transparent 60%),
     linear-gradient(170deg,
       #e9f1fa 0%, var(--bg) 28%,
       #edf3fa 52%, var(--bg) 78%,
-      #eaf2fb 100%);
+      #eaf2fb 100%);*/
 }
 
 .container {
@@ -427,6 +433,7 @@ h1, h2, h3 {
 
 /* ---------- 响应式 ---------- */
 @media (max-width: 768px) {
+  body { background-attachment: scroll; }
   .home {
     grid-template-columns: 1fr;
     gap: 12px;
