@@ -215,3 +215,25 @@ html[data-glass="solid"] .feed-item.glass-card:hover {
     backdrop-filter: blur(6px);
   }
 }
+
+/* ---------- 文章页/标签页正文卡片：为阅读体验强制 frost 或 solid ----------
+   .post/.page 不使用液态玻璃（长文阅读时扫光/色散干扰）；
+   liquid / frost 模式均显示为高斯模糊高透明，solid 模式还原实心白。
+   post.css 在后加载且同为 (0,1,0)，故此处必须用 html[data-glass]
+   作用域选择器（0,2,1）才能压过它 */
+html[data-glass="liquid"] .post,
+html[data-glass="frost"] .post,
+html[data-glass="liquid"] .page,
+html[data-glass="frost"] .page {
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: none;
+}
+
+html[data-glass="solid"] .post,
+html[data-glass="solid"] .page {
+  background: var(--card);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
