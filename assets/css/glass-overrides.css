@@ -131,7 +131,7 @@
 
 /* ---------- 风格二：高斯模糊高透明（frost） ---------- */
 html[data-glass="frost"] .glass {
-  background: rgba(255, 255, 255, 0.28);   /* 覆盖库的两层渐变（含 background-size 复位） */
+  background: rgba(255, 255, 255, 0.88);   /* 覆盖库的两层渐变（含 background-size 复位） */
   -webkit-backdrop-filter: blur(10px);      /* 纯模糊，去掉 saturate/brightness */
   backdrop-filter: blur(10px);
   box-shadow: none;                         /* 去描边环 / 内高光 / 深度投影 */
@@ -147,7 +147,7 @@ html[data-glass="frost"] .glass-card::after {
 }
 
 html[data-glass="frost"] .glass-card {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.85);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   box-shadow: none;
