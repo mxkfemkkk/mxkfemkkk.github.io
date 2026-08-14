@@ -1,0 +1,85 @@
+/* glass-refraction 站点定制 —— 本文件在 glass.css 之后加载，同级规则必胜
+   库默认是深海军蓝玻璃，此处整体换为浅色主题 */
+
+:root {
+  --gr-blur: 14px;               /* 导航玻璃模糊（默认 26px 过重） */
+  --gr-blur-card: 12px;          /* 卡片玻璃模糊（默认 20px） */
+  --gr-saturation: 1.35;
+  --gr-saturation-card: 1.3;
+  --gr-shimmer-duration: 8s;     /* 导航扫光放缓（默认 7s） */
+  --gr-specular-duration: 8s;    /* 呼吸高光放缓（默认 5s） */
+}
+
+/* 浅色底色变量（.glass 的渐变背景引用这两个变量；
+   .glass-card 的背景在库内是硬编码的，需在下方按类直接覆盖） */
+.glass, .glass-card, .glass-pill {
+  --gr-bg-start: rgba(255, 255, 255, 0.60);
+  --gr-bg-end: rgba(255, 255, 255, 0.38);
+}
+
+/* —— 圆角与站点现有 8px 统一（色散边缘基于圆角定位） —— */
+.glass-card { --gr-radius-card: 8px; }
+.glass      { --gr-radius: 8px; }
+
+/* —— 覆盖库硬编码的深海军蓝卡片背景（rgba(15,18,30,0.52)）为浅色 —— */
+.glass-card {
+  background: linear-gradient(160deg,
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.40) 100%);
+}
+
+/* —— 吸顶导航：库的 .glass 把 position 覆盖成 relative，这里补回 sticky —— */
+.site-header.glass {
+  position: sticky;
+  top: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid var(--border);
+}
+
+/* —— 内边距与原有卡片保持一致（若库未来加 padding 则覆盖之） —— */
+.profile-card.glass-card { padding: 24px; }
+.feed-item.glass-card    { padding: 18px 20px; }
+.side-card.glass-card    { padding: 20px; }
+
+/* —— feed 卡片悬停上浮：库的 .glass-card:hover (0,1,0) 被 main.css
+   的 .feed-item:hover (0,2,0) 压掉，补同级规则恢复玻璃悬停效果 —— */
+.feed-item.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 8px 32px -8px rgba(0, 0, 0, 0.45);
+}
+
+/* —— 老浏览器无 backdrop-filter：底色加浓保证可读 —— */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass, .glass-pill {
+    --gr-bg-start: rgba(255, 255, 255, 0.92);
+    --gr-bg-end: rgba(255, 255, 255, 0.92);
+  }
+  .glass-card {
+    background: linear-gradient(160deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.92) 100%);
+  }
+}
+
+/* —— 移动端：降低模糊控制开销 —— */
+@media (max-width: 768px) {
+  .glass      { --gr-blur: 10px; }
+  .glass-card { --gr-blur-card: 8px; }
+  .profile-card.glass-card { padding: 18px; }   /* 与 main.css 768px 断点一致 */
+}
+
+/* —— 无障碍：尊重系统「减少动态效果」 —— */
+@media (prefers-reduced-motion: reduce) {
+  .glass, .glass-card, .glass-pill,
+  .glass::before, .glass::after,
+  .glass-card::before, .glass-card::after,
+  .glass-pill::before, .glass-pill::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

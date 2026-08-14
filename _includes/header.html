@@ -1,5 +1,5 @@
 {% assign current = page.url %}
-<header class="site-header">
+<header class="site-header glass">
   <nav class="site-nav">
     <a class="brand {% if current == "/" %}active{% endif %}" href="{{ "/" | relative_url }}">{{ site.title }}</a>
     <a href="{{ "/posts/" | relative_url }}" class="{% if current contains "/posts/" or page.layout == "post" %}active{% endif %}">文章</a>
