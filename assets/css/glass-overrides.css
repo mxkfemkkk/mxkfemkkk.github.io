@@ -277,3 +277,190 @@ html[data-glass="solid"] .page {
   padding: 8px 16px;
   font-size: 0.9375rem;
 }
+
+/* ============================================================
+   导航「主题」两级下拉菜单（macOS 风格，仅桌面端）
+   桌面端替换原 .nav-switches 分段控件；移动端保持 设置 链接入口
+   全部用 var() 令牌：深色模式与三种玻璃风格下均可读
+   ============================================================ */
+
+/* 桌面端保险：.nav-switches 已从导航移除（改由菜单承担） */
+@media (min-width: 769px) {
+  .nav-switches { display: none; }
+}
+
+/* ---------- 触发器：菜单栏风格按钮 ---------- */
+.theme-menu {
+  position: relative;            /* 面板定位锚点 */
+}
+
+.theme-menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: inherit;
+  font-size: 0.9375rem;          /* 与 .site-nav a 字号一致 */
+  line-height: 1;
+  color: var(--text);
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-menu-trigger:hover,
+.theme-menu-trigger[aria-expanded="true"] {
+  color: var(--blue);
+  background: var(--hover-bg);
+}
+
+.theme-menu-trigger:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* ---------- 面板：实底卡片，浮于玻璃头部之上 ---------- */
+.theme-menu-panel {
+  position: absolute;
+  top: calc(100% + 6px);         /* 紧贴触发器下缘（macOS 感） */
+  right: 0;                      /* 面板右缘与触发器右缘对齐 */
+  z-index: 10;                   /* 需 > .glass::before(3) / ::after(2)，盖过扫光/色散 */
+  min-width: 12rem;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);       /* 实底，玻璃/纯色头部下都可读 */
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.12s ease, transform 0.12s ease, visibility 0.12s;
+}
+
+.theme-menu.open .theme-menu-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* ---------- 一级项：颜色模式 / 透明模式 ---------- */
+.theme-menu-item {
+  position: relative;            /* 二级子菜单定位锚点 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--text);
+  cursor: default;
+}
+
+.theme-menu-item:hover,
+.theme-menu-item:focus-visible {
+  background: var(--hover-bg);
+  color: var(--blue);
+}
+
+.theme-menu-caret {
+  font-size: 0.75rem;
+  line-height: 1;
+  color: var(--text-2);
+}
+
+.theme-menu-item:hover .theme-menu-caret,
+.theme-menu-item:focus-visible .theme-menu-caret {
+  color: var(--blue);
+}
+
+/* ---------- 二级子菜单：默认向右侧展开（macOS 方向） ---------- */
+.theme-menu-sub {
+  position: absolute;
+  top: 0;
+  left: 100%;                    /* 与一级项右缘零缝隙贴合，悬停不中断 */
+  min-width: 9.5rem;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease, visibility 0.12s;
+}
+
+.theme-menu-item:hover > .theme-menu-sub,
+.theme-menu-item:focus-within > .theme-menu-sub {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 窄桌面（≤1360px）：子菜单改向左展开，避免超出视口右缘
+   （数学：面板右缘=(视口+1032)/2，子菜单 152px 需视口≥1342px 才右展） */
+@media (max-width: 1360px) {
+  .theme-menu-sub {
+    left: auto;
+    right: 100%;                 /* 与一级项左缘零缝隙贴合 */
+  }
+}
+
+/* ---------- 选项按钮：选中 = 对勾 + 主题蓝（macOS 风格） ---------- */
+.theme-menu-sub button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  font: inherit;
+  font-size: 0.875rem;
+  text-align: left;
+  color: var(--text);
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;           /* 中文可任意断行，必须禁止换行 */
+}
+
+.theme-menu-sub button:hover {
+  background: var(--hover-bg);
+}
+
+.theme-menu-sub button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: -2px;
+}
+
+/* 对勾占位：固定宽度保持所有标签对齐 */
+.theme-menu-sub button::before {
+  content: "";
+  width: 1.25em;
+  flex: none;
+  visibility: hidden;
+}
+
+.theme-menu-sub button.active::before {
+  content: "✓";
+  visibility: visible;
+  color: var(--blue);
+}
+
+.theme-menu-sub button.active {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* ---------- 移动端：菜单隐藏（原 设置 链接 + /theme/ 页入口不变） ---------- */
+@media (max-width: 768px) {
+  .theme-menu { display: none; }
+}
+
+/* ---------- 无障碍：尊重系统「减少动态效果」 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .theme-menu-panel,
+  .theme-menu-sub {
+    transition: none;
+  }
+}
