@@ -1,5 +1,6 @@
 /* 颜色主题切换：浅色 / 深色 / 自动（自动 = 跟随系统 prefers-color-scheme）
    写入 <html data-theme> 并持久化到 localStorage('glass-theme')；
+   支持多组控件（导航栏 + /theme/ 设置页），任意一组点击全局生效；
    'auto' 模式监听系统偏好变化实时跟随；
    无依赖、defer 加载；head 内联脚本已预置 data-theme 防 FOUC */
 (function () {
@@ -7,7 +8,7 @@
 
   var THEMES = ['light', 'dark', 'auto'];   /* 合法值白名单 */
   var root = document.documentElement;
-  var group = document.querySelector('.theme-switch');
+  var groups = document.querySelectorAll('.theme-switch');
   var mql = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
   var current = 'auto';                     /* 当前用户选择（含 auto） */
 
@@ -19,16 +20,17 @@
     return choice;
   }
 
-  /* 应用主题：data-theme 写入解析值；按钮态按用户选择显示 */
+  /* 应用主题：data-theme 写入解析值；全部控件组按钮态按用户选择显示 */
   function apply(choice) {
     root.dataset.theme = resolve(choice);
-    if (!group) { return; }
-    var buttons = group.querySelectorAll('button[data-theme]');
-    for (var i = 0; i < buttons.length; i++) {
-      var on = buttons[i].getAttribute('data-theme') === choice;
-      if (on) { buttons[i].classList.add('active'); }
-      else    { buttons[i].classList.remove('active'); }
-      buttons[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+    for (var g = 0; g < groups.length; g++) {
+      var buttons = groups[g].querySelectorAll('button[data-theme]');
+      for (var i = 0; i < buttons.length; i++) {
+        var on = buttons[i].getAttribute('data-theme') === choice;
+        if (on) { buttons[i].classList.add('active'); }
+        else    { buttons[i].classList.remove('active'); }
+        buttons[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+      }
     }
   }
 
@@ -40,12 +42,14 @@
     try { localStorage.setItem('glass-theme', choice); } catch (e) { /* 隐私模式忽略 */ }
   }
 
-  /* 事件委托：点击任意主题按钮即切换 */
-  if (group) {
-    group.addEventListener('click', function (e) {
-      var btn = e.target.closest ? e.target.closest('button[data-theme]') : null;
-      if (btn) { setTheme(btn.getAttribute('data-theme')); }
-    });
+  /* 事件委托：每个控件组都绑定，点击任意主题按钮即切换 */
+  for (var g = 0; g < groups.length; g++) {
+    (function (group) {
+      group.addEventListener('click', function (e) {
+        var btn = e.target.closest ? e.target.closest('button[data-theme]') : null;
+        if (btn) { setTheme(btn.getAttribute('data-theme')); }
+      });
+    })(groups[g]);
   }
 
   /* auto 模式：系统偏好变化时实时跟随 */

@@ -214,7 +214,8 @@ html[data-glass="solid"] .feed-item.glass-card:hover {
 
 /* ---------- 移动端（≤768px）：控件换行靠右；frost 降低模糊开销 ---------- */
 @media (max-width: 768px) {
-  .nav-switches { margin-left: auto; }    /* .nav-about 该断点已取消 auto，由控件组顶替靠右 */
+  .nav-switches { display: none; }        /* 移动端：控件移入 /theme/ 页面，导航栏节省空间 */
+  .nav-theme-link { display: inline; margin-left: auto; }   /* 只留入口链接，靠右 */
   html[data-glass="frost"] .glass {
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
@@ -245,4 +246,34 @@ html[data-glass="solid"] .page {
   background: var(--card);
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
+}
+
+/* ---------- 导航"主题样式"入口（桌面隐藏：桌面保持控件直显） ---------- */
+.nav-theme-link {
+  display: none;
+}
+
+/* ---------- /theme/ 设置页：说明文字与控件布局 ---------- */
+.theme-page-desc {
+  color: var(--text-2);
+  font-size: 0.875rem;
+  margin-bottom: 20px;
+}
+
+.theme-page-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.theme-page-controls .glass-switch,
+.theme-page-controls .theme-switch {
+  align-self: flex-start;
+  padding: 4px;
+}
+
+.theme-page-controls .glass-switch button,
+.theme-page-controls .theme-switch button {
+  padding: 8px 16px;
+  font-size: 0.9375rem;
 }
