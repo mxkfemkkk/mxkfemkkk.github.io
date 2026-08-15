@@ -15,6 +15,89 @@
   --text-3: #8590a6;        /* 元信息文字 */
   --blue: #0084ff;          /* 知乎蓝 */
   --blue-hover: #0069e0;    /* 悬停蓝 */
+
+  /* 页面背景：浅色为 bg.jpg 图片，深色由 html[data-theme="dark"] 换为渐变 */
+  --body-bg-image: url("/assets/bg.jpg");
+
+  /* 文章页语义令牌（post.css 引用；浅色值 = 原字面量，像素不变） */
+  --heading: #08090b;          /* 文章标题 */
+  --body-text: #24292e;        /* 正文（MathJax 公式亦用此色） */
+  --link: #486df1;             /* 正文链接 / 标签 */
+  --post-meta: #6a737d;        /* 元信息 / 引用 / h6 */
+  --post-date-color: #959da5;  /* 日期 */
+  --post-border: #f1f3f4;      /* 文章卡片与代码边框 */
+  --table-border: #dfe2e5;     /* 表格 / 引用边框 */
+  --code-bg: #fafbfc;          /* 行内代码与代码块底色 */
+  --table-stripe: #f8f8f8;     /* 表格斑马纹 */
+  --hr: #e7e7e7;               /* 分隔线 */
+  --mark-bg: #ffde67;          /* 高亮底色 */
+  --mark-text: #080a10;        /* 高亮文字 */
+
+  /* 玻璃令牌（glass-overrides.css 引用；浅色值 = 其当前字面量） */
+  --glass-tint-start: rgba(255, 255, 255, 0.40);
+  --glass-tint-end: rgba(255, 255, 255, 0.38);
+  --glass-card-bg: linear-gradient(160deg,
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.40) 100%);
+  --glass-fallback-bg: rgba(255, 255, 255, 0.92);
+  --frost-nav-bg: rgba(255, 255, 255, 0.75);
+  --frost-card-bg: rgba(255, 255, 255, 0.72);
+  --post-frost-bg: rgba(255, 255, 255, 0.70);
+  --control-bg: rgba(255, 255, 255, 0.65);
+}
+
+/* ============================================================
+   深色主题：html[data-theme="dark"]
+   触发由 head 内联脚本 + glass-theme.js 解析（localStorage 'glass-theme'
+   显式选择优先，'auto' 用 matchMedia 跟随系统）；CSS 不用
+   prefers-color-scheme 媒体查询，避免"系统深色 + 手动浅色"冲突
+   ============================================================ */
+html[data-theme="dark"] {
+  /* 基础 */
+  --bg: #0f1216;
+  --card: #181d24;
+  --border: #2a313b;
+  --hover-bg: #1f2630;
+  --text: #e8eaed;
+  --text-2: #a0a8b4;
+  --text-3: #7a8494;
+  --blue: #3d9bff;
+  --blue-hover: #66b2ff;
+
+  /* 页面背景：深海军蓝渐变（替换浅色的 bg.jpg） */
+  --body-bg-image:
+    radial-gradient(900px 520px at 90% -60px, rgba(64, 120, 255, 0.14), transparent 62%),
+    radial-gradient(760px 420px at -40px 60px, rgba(64, 120, 255, 0.09), transparent 60%),
+    linear-gradient(170deg,
+      #0d1220 0%, #10151f 28%,
+      #0f1522 52%, #10151f 78%,
+      #0d1220 100%);
+
+  /* 文章页 */
+  --heading: #e8eaed;
+  --body-text: #c9d1d9;
+  --link: #7aa2ff;
+  --post-meta: #8b949e;
+  --post-date-color: #7d8590;
+  --post-border: #2a313b;
+  --table-border: #2e3540;
+  --code-bg: #1e242c;
+  --table-stripe: #1c2229;
+  --hr: #2e3540;
+  --mark-bg: #6b5d14;
+  --mark-text: #f2e7b8;
+
+  /* 玻璃 */
+  --glass-tint-start: rgba(18, 22, 35, 0.48);   /* 库自带深海军蓝，直接用作深色值 */
+  --glass-tint-end: rgba(12, 16, 28, 0.42);
+  --glass-card-bg: linear-gradient(160deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.06) 100%);
+  --glass-fallback-bg: rgba(28, 34, 44, 0.92);
+  --frost-nav-bg: rgba(28, 34, 44, 0.88);
+  --frost-card-bg: rgba(28, 34, 44, 0.85);
+  --post-frost-bg: rgba(28, 34, 44, 0.85);
+  --control-bg: rgba(255, 255, 255, 0.08);
 }
 
 html {
@@ -27,7 +110,7 @@ body {
   line-height: 1.7;
   color: var(--text);
   background-color: var(--bg); 
-  background-image: url("/assets/bg.jpg");
+  background-image: var(--body-bg-image);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -387,7 +470,7 @@ h1, h2, h3 {
 }
 
 .post-content pre {
-  background: #f6f8fa;
+  background: var(--code-bg);
   border-radius: 8px;
   padding: 12px 16px;
   overflow-x: auto;
@@ -395,7 +478,7 @@ h1, h2, h3 {
 }
 
 .post-content code {
-  background: #f6f8fa;
+  background: var(--code-bg);
   border-radius: 4px;
   padding: 2px 5px;
   font-size: 0.9em;

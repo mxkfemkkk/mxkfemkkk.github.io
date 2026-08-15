@@ -13,8 +13,8 @@
 /* 浅色底色变量（.glass 的渐变背景引用这两个变量；
    .glass-card 的背景在库内是硬编码的，需在下方按类直接覆盖） */
 .glass, .glass-card, .glass-pill {
-  --gr-bg-start: rgba(255, 255, 255, 0.40);
-  --gr-bg-end: rgba(255, 255, 255, 0.38);
+  --gr-bg-start: var(--glass-tint-start);
+  --gr-bg-end: var(--glass-tint-end);
 }
 
 /* —— 圆角与站点现有 8px 统一（色散边缘基于圆角定位） —— */
@@ -23,9 +23,7 @@
 
 /* —— 覆盖库硬编码的深海军蓝卡片背景（rgba(15,18,30,0.52)）为浅色 —— */
 .glass-card {
-  background: linear-gradient(160deg,
-    rgba(255, 255, 255, 0.65) 0%,
-    rgba(255, 255, 255, 0.40) 100%);
+  background: var(--glass-card-bg);
 }
 
 /* —— 吸顶导航：库的 .glass 把 position 覆盖成 relative，这里补回 sticky —— */
@@ -56,13 +54,11 @@
 /* —— 老浏览器无 backdrop-filter：底色加浓保证可读 —— */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .glass, .glass-pill {
-    --gr-bg-start: rgba(255, 255, 255, 0.92);
-    --gr-bg-end: rgba(255, 255, 255, 0.92);
+    --gr-bg-start: var(--glass-fallback-bg);
+    --gr-bg-end: var(--glass-fallback-bg);
   }
   .glass-card {
-    background: linear-gradient(160deg,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(255, 255, 255, 0.92) 100%);
+    background: var(--glass-fallback-bg);
   }
 }
 
@@ -89,18 +85,27 @@
    通过 <html data-glass="..."> 生效；liquid 为默认，无需覆盖
    ============================================================ */
 
+/* 导航右侧两个切换控件的容器：作为一个整体右对齐/换行 */
+.nav-switches {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* ---------- 切换控件（导航栏右侧；自身不带 glass 类，不受风格影响） ---------- */
-.glass-switch {
+.glass-switch,
+.theme-switch {
   display: inline-flex;
   align-items: center;
   gap: 2px;
   padding: 2px;
   border: 1px solid var(--border);
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.65);   /* 玻璃/纯色头部下都可读 */
+  background: var(--control-bg);            /* 玻璃/纯色头部下都可读 */
 }
 
-.glass-switch button {
+.glass-switch button,
+.theme-switch button {
   font: inherit;
   font-size: 0.8125rem;                    /* 与元信息字号一致 */
   line-height: 1;
@@ -113,25 +118,29 @@
   transition: background 0.2s, color 0.2s;
 }
 
-.glass-switch button:hover {
+.glass-switch button:hover,
+.theme-switch button:hover {
   color: var(--blue);
   background: rgba(0, 132, 255, 0.08);
 }
 
 .glass-switch button.active,
-.glass-switch button[aria-pressed="true"] {
+.glass-switch button[aria-pressed="true"],
+.theme-switch button.active,
+.theme-switch button[aria-pressed="true"] {
   background: var(--blue);
   color: #fff;
 }
 
-.glass-switch button:focus-visible {
+.glass-switch button:focus-visible,
+.theme-switch button:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 1px;
 }
 
 /* ---------- 风格二：高斯模糊高透明（frost） ---------- */
 html[data-glass="frost"] .glass {
-  background: rgba(255, 255, 255, 0.75);   /* 覆盖库的两层渐变（含 background-size 复位） */
+  background: var(--frost-nav-bg);         /* 覆盖库的两层渐变（含 background-size 复位） */
   -webkit-backdrop-filter: blur(10px);      /* 纯模糊，去掉 saturate/brightness */
   backdrop-filter: blur(10px);
   box-shadow: none;                         /* 去描边环 / 内高光 / 深度投影 */
@@ -147,7 +156,7 @@ html[data-glass="frost"] .glass-card::after {
 }
 
 html[data-glass="frost"] .glass-card {
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--frost-card-bg);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   box-shadow: none;
@@ -162,8 +171,8 @@ html[data-glass="frost"] .glass-card:hover {
 
 /* 老浏览器无 backdrop-filter：底色加浓保证可读（与 liquid 的 0.92 回退一致） */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  html[data-glass="frost"] .glass       { background: rgba(255, 255, 255, 0.92); }
-  html[data-glass="frost"] .glass-card  { background: rgba(255, 255, 255, 0.92); }
+  html[data-glass="frost"] .glass       { background: var(--glass-fallback-bg); }
+  html[data-glass="frost"] .glass-card  { background: var(--glass-fallback-bg); }
 }
 
 /* ---------- 风格三：纯色（solid，还原最初白色卡片） ---------- */
@@ -205,7 +214,7 @@ html[data-glass="solid"] .feed-item.glass-card:hover {
 
 /* ---------- 移动端（≤768px）：控件换行靠右；frost 降低模糊开销 ---------- */
 @media (max-width: 768px) {
-  .glass-switch { margin-left: auto; }    /* .nav-about 该断点已取消 auto，由控件顶替靠右 */
+  .nav-switches { margin-left: auto; }    /* .nav-about 该断点已取消 auto，由控件组顶替靠右 */
   html[data-glass="frost"] .glass {
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
@@ -225,7 +234,7 @@ html[data-glass="liquid"] .post,
 html[data-glass="frost"] .post,
 html[data-glass="liquid"] .page,
 html[data-glass="frost"] .page {
-  background: rgba(255, 255, 255, 0.70);
+  background: var(--post-frost-bg);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   box-shadow: none;
