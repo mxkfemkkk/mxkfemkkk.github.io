@@ -65,13 +65,14 @@ html[data-theme="dark"] {
   --blue-hover: #66b2ff;
 
   /* 页面背景：深海军蓝渐变（替换浅色的 bg.jpg） */
-  --body-bg-image:
+  /*--body-bg-image:
     radial-gradient(900px 520px at 90% -60px, rgba(64, 120, 255, 0.14), transparent 62%),
     radial-gradient(760px 420px at -40px 60px, rgba(64, 120, 255, 0.09), transparent 60%),
     linear-gradient(170deg,
       #0d1220 0%, #10151f 28%,
       #0f1522 52%, #10151f 78%,
-      #0d1220 100%);
+      #0d1220 100%);*/
+    --body-bg-image: url("/assets/bg-dark.jpg");
 
   /* 文章页 */
   --heading: #e8eaed;
