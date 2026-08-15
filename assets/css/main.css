@@ -73,7 +73,7 @@ html[data-theme="dark"] {
       #0f1522 52%, #10151f 78%,
       #0d1220 100%);*/
   --body-bg-image:
-    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),   /* 半透明黑遮罩（75%） */
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),   /* 半透明黑遮罩（75%） */
     url("/assets/bg-dark.jpg");
 
   /* 文章页 */
