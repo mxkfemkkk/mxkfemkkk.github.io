@@ -34,15 +34,15 @@
   --mark-text: #080a10;        /* 高亮文字 */
 
   /* 玻璃令牌（glass-overrides.css 引用；浅色值 = 其当前字面量） */
-  --glass-tint-start: rgba(255, 255, 255, 0.40);
-  --glass-tint-end: rgba(255, 255, 255, 0.38);
+  --glass-tint-start: rgba(255, 255, 255, 0.30);
+  --glass-tint-end: rgba(255, 255, 255, 0.30);
   --glass-card-bg: linear-gradient(160deg,
-    rgba(255, 255, 255, 0.65) 0%,
-    rgba(255, 255, 255, 0.40) 100%);
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.30) 100%);
   --glass-fallback-bg: rgba(255, 255, 255, 0.92);
-  --frost-nav-bg: rgba(255, 255, 255, 0.75);
-  --frost-card-bg: rgba(255, 255, 255, 0.72);
-  --post-frost-bg: rgba(255, 255, 255, 0.70);
+  --frost-nav-bg: rgba(255, 255, 255, 0.82);
+  --frost-card-bg: rgba(255, 255, 255, 0.80);
+  --post-frost-bg: rgba(255, 255, 255, 0.80);
   --control-bg: rgba(255, 255, 255, 0.65);
 }
 
