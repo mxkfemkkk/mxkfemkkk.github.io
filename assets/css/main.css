@@ -40,9 +40,9 @@
     rgba(255, 255, 255, 0.55) 0%,
     rgba(255, 255, 255, 0.30) 100%);
   --glass-fallback-bg: rgba(255, 255, 255, 0.92);
-  --frost-nav-bg: rgba(255, 255, 255, 0.82);
-  --frost-card-bg: rgba(255, 255, 255, 0.80);
-  --post-frost-bg: rgba(255, 255, 255, 0.80);
+  --frost-nav-bg: rgba(255, 255, 255, 0.78);
+  --frost-card-bg: rgba(255, 255, 255, 0.78);
+  --post-frost-bg: rgba(255, 255, 255, 0.78);
   --control-bg: rgba(255, 255, 255, 0.65);
 }
 
