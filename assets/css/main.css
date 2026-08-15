@@ -72,7 +72,7 @@ html[data-theme="dark"] {
       #0d1220 0%, #10151f 28%,
       #0f1522 52%, #10151f 78%,
       #0d1220 100%);*/
-    --body-bg-image: url("/assets/bg-dark.jpg");
+  --body-bg-image: url("/assets/bg-dark.jpg");
 
   /* 文章页 */
   --heading: #e8eaed;
